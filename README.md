@@ -1,4 +1,2 @@
 # https://rubix-coder.github.io/
-# Python3 `#100daysofcode` challenge
-- # [rock-paper-scissors](https://replit.com/@rubixcoder/rock-paper-scissors-start?v=1)
-- # [Find the Treasure](https://replit.com/@rubixcoder/mytreasuregame?v=1)
+# [Python3 `#100daysofcode` challenge projects](https://www.notion.so/bfca98a5fbcd43b6bfe77f19c4d3f458?v=869511ff1edf40a192c8b6a8b3e5d11d)
