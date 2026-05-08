@@ -13,6 +13,8 @@
       --bg-primary:    #050b18;
       --bg-secondary:  #0d1528;
       --bg-card:       #111827;
+      --bg-primary-t:  rgba(5,11,24,0.82);
+      --bg-secondary-t:rgba(13,21,40,0.82);
       --accent-1:      #6366f1;
       --accent-2:      #22d3ee;
       --accent-gradient: linear-gradient(135deg, #6366f1, #22d3ee);
@@ -23,8 +25,6 @@
       --border-subtle: rgba(255,255,255,0.06);
       --shadow-glow:   0 0 40px rgba(99,102,241,0.15);
       --nav-bg:        rgba(5,11,24,0.88);
-      --chip-opacity:  0.16;
-      --chip-base:     #050b18;
     }
 
     /* ─── LIGHT THEME ─────────────────────────────── */
@@ -32,6 +32,8 @@
       --bg-primary:    #f1f5f9;
       --bg-secondary:  #e8edf5;
       --bg-card:       #ffffff;
+      --bg-primary-t:  rgba(241,245,249,0.88);
+      --bg-secondary-t:rgba(232,237,245,0.88);
       --accent-1:      #4f46e5;
       --accent-2:      #0891b2;
       --accent-gradient: linear-gradient(135deg, #4f46e5, #0891b2);
@@ -42,13 +44,7 @@
       --border-subtle: rgba(0,0,0,0.07);
       --shadow-glow:   0 0 40px rgba(79,70,229,0.12);
       --nav-bg:        rgba(241,245,249,0.88);
-      --chip-opacity:  0.07;
-      --chip-base:     #e2e8f0;
     }
-
-    --radius:    12px;
-    --radius-lg: 20px;
-    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
 
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
@@ -85,11 +81,6 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
     }
-    /* scan-line glow sweeper (injected per layer via JS) */
-    .chip-scan {
-      position: absolute; left: 0; right: 0;
-      height: 70px; pointer-events: none; z-index: 2;
-    }
 
     /* ─── SCROLLBAR ───────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
@@ -119,43 +110,41 @@
     .nav-links a {
       color: var(--text-secondary); text-decoration: none;
       font-size: 0.875rem; font-weight: 500; letter-spacing: 0.03em;
-      transition: color var(--transition);
+      transition: color 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     .nav-links a:hover { color: var(--text-primary); }
     .nav-cta {
       padding: 8px 20px; border: 1px solid var(--accent-1);
       border-radius: 8px; color: var(--accent-1) !important;
-      transition: all var(--transition) !important;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important;
     }
     .nav-cta:hover { background: var(--accent-1) !important; color: #fff !important; }
-
-    /* Theme toggle */
     .theme-toggle {
       width: 36px; height: 36px; border-radius: 8px;
       background: transparent; border: 1px solid var(--border-subtle);
       color: var(--text-secondary); cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; transition: all var(--transition);
+      font-size: 0.9rem; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     .theme-toggle:hover { border-color: var(--accent-1); color: var(--accent-1); background: rgba(99,102,241,0.08); }
-
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
     }
     .nav-hamburger span {
       display: block; width: 22px; height: 2px;
-      background: var(--text-primary); border-radius: 2px; transition: var(--transition);
+      background: var(--text-primary); border-radius: 2px; transition: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
     /* ─── HERO ────────────────────────────────────── */
     #hero {
       min-height: 100vh; display: flex; align-items: center;
       position: relative; overflow: hidden; padding: 100px 24px 60px;
+      background: var(--bg-primary-t);
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.16) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,0.18) 0%, transparent 60%),
         radial-gradient(ellipse 50% 40% at 80% 80%, rgba(34,211,238,0.09) 0%, transparent 55%);
     }
     [data-theme="light"] .hero-bg {
@@ -164,10 +153,10 @@
         radial-gradient(ellipse 50% 40% at 80% 80%, rgba(8,145,178,0.06) 0%, transparent 55%);
     }
     .hero-grid {
-      position: absolute; inset: 0; z-index: 0; opacity: 0.025;
+      position: absolute; inset: 0; z-index: 0; opacity: 0.04;
       background-image:
-        linear-gradient(rgba(99,102,241,0.8) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99,102,241,0.8) 1px, transparent 1px);
+        linear-gradient(rgba(167,139,250,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,0.8) 1px, transparent 1px);
       background-size: 50px 50px;
     }
     .hero-inner {
@@ -215,7 +204,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 12px 28px; border-radius: 10px; font-size: 0.9rem;
       font-weight: 600; text-decoration: none;
-      transition: all var(--transition); cursor: pointer; border: none;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; border: none;
     }
     .btn-primary {
       background: var(--accent-gradient); color: #fff;
@@ -227,7 +216,7 @@
     }
     .btn-outline:hover { border-color: var(--accent-1); color: var(--text-primary); background: rgba(99,102,241,0.07); }
 
-    /* Hero Avatar — GitHub photo */
+    /* Hero Avatar */
     .hero-avatar { position: relative; }
     .hero-avatar-ring {
       width: 240px; height: 240px; border-radius: 50%;
@@ -247,20 +236,145 @@
       width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
     }
 
+    /* ─── IC CHIP LAYER BADGE ─────────────────────── */
+    .chip-layer-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--lc, var(--accent-1));
+      border: 1px solid var(--lc, var(--accent-1));
+      background: transparent;
+      padding: 5px 14px; border-radius: 4px;
+      margin-bottom: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      position: relative; z-index: 1;
+    }
+    [data-theme="dark"] .chip-layer-badge {
+      background: rgba(0,0,0,0.35);
+      box-shadow: 0 0 12px -2px var(--lc, var(--accent-1));
+    }
+    [data-theme="light"] .chip-layer-badge {
+      background: rgba(255,255,255,0.5);
+    }
+    .clb-icon { font-style: normal; }
+    .clb-sep  { opacity: 0.45; }
+
+    /* ─── SECTION CHIP LAYER STYLING ─────────────── */
+    section[data-layer] {
+      position: relative;
+      border-left: 4px solid var(--lc, var(--accent-1));
+      box-shadow: inset 8px 0 28px -8px var(--lc, var(--accent-1));
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    /* Circuit grid background pattern in each section */
+    section[data-layer]::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--lc, var(--accent-1)) 1px, transparent 1px),
+        linear-gradient(90deg, var(--lc, var(--accent-1)) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: 0.042;
+      pointer-events: none; z-index: 0;
+    }
+    [data-theme="light"] section[data-layer]::before { opacity: 0.025; }
+
+    /* Top-left corner bracket */
+    section[data-layer] .section-inner::before {
+      content: '';
+      position: absolute; top: -8px; left: -8px;
+      width: 36px; height: 36px;
+      border-top: 2px solid var(--lc, var(--accent-1));
+      border-left: 2px solid var(--lc, var(--accent-1));
+      opacity: 0.55; pointer-events: none; z-index: 1;
+    }
+    /* Bottom-right corner bracket */
+    section[data-layer] .section-inner::after {
+      content: '';
+      position: absolute; bottom: -8px; right: 0;
+      width: 36px; height: 36px;
+      border-bottom: 2px solid var(--lc, var(--accent-1));
+      border-right: 2px solid var(--lc, var(--accent-1));
+      opacity: 0.55; pointer-events: none; z-index: 1;
+    }
+
+    /* Scan beam that sweeps section on entry */
+    .section-scan {
+      position: absolute; left: 0; right: 0; top: 0;
+      height: 3px; z-index: 10; pointer-events: none;
+      background: var(--lc, var(--accent-1));
+      box-shadow: 0 0 32px 12px var(--lc, var(--accent-1));
+      opacity: 0;
+    }
+    @keyframes scanSweep {
+      0%   { top: 0;    opacity: 1; }
+      80%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    .section-scan.active { animation: scanSweep 1.2s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+    /* Section inner pop-out on activation */
+    .section-inner {
+      max-width: 1200px; margin: 0 auto;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    section[data-layer].layer-active .section-inner {
+      transform: perspective(1400px) translateZ(6px);
+    }
+
+    /* ─── LAYER STACK INDICATOR ───────────────────── */
+    #layerStack {
+      position: fixed; right: 20px; top: 50%;
+      transform: translateY(-50%);
+      z-index: 50; pointer-events: none;
+      display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+    }
+    .ls-item {
+      display: flex; align-items: center; gap: 8px;
+      pointer-events: all; cursor: pointer;
+    }
+    .ls-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+      color: var(--dot-c); opacity: 0; transition: opacity 0.3s ease;
+      white-space: nowrap; letter-spacing: 0.06em;
+    }
+    .ls-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--dot-c);
+      opacity: 0.22; transition: all 0.35s ease;
+    }
+    .ls-item:hover .ls-label,
+    .ls-item.ls-active .ls-label { opacity: 0.8; }
+    .ls-item.ls-active .ls-dot {
+      opacity: 1; width: 10px; height: 10px;
+      box-shadow: 0 0 10px 3px var(--dot-c);
+    }
+    @media (max-width: 900px) { #layerStack { display: none; } }
+
+    /* ─── HERO LAYER BADGE position ──────────────── */
+    #hero .chip-layer-badge {
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+
     /* ─── SECTION COMMONS ─────────────────────────── */
     section { padding: 96px 24px; position: relative; z-index: 1; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
     .section-tag {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
       font-weight: 500; color: var(--accent-1); margin-bottom: 12px; letter-spacing: 0.05em;
+      position: relative; z-index: 1;
     }
     .section-tag::before { content:''; width:20px; height:1px; background:var(--accent-1); }
-    .section-title { font-size: clamp(1.6rem,4vw,2.25rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px; }
-    .section-lead { color:var(--text-secondary); font-size:1rem; max-width:600px; margin-bottom:56px; line-height:1.7; }
+    .section-title { font-size: clamp(1.6rem,4vw,2.25rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px; position:relative; z-index:1; }
+    .section-lead { color:var(--text-secondary); font-size:1rem; max-width:600px; margin-bottom:56px; line-height:1.7; position:relative; z-index:1; }
 
     /* ─── ABOUT ───────────────────────────────────── */
-    #about { background: var(--bg-secondary); }
+    #about { background: var(--bg-secondary-t); }
     .quote-card {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 20px; padding: 36px 40px; position: relative; overflow: hidden;
@@ -275,7 +389,8 @@
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; }
     .about-card {
       background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px;
-      padding:28px; display:flex; gap:16px; align-items:flex-start; transition:all var(--transition);
+      padding:28px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+      position: relative; z-index: 1;
     }
     .about-card:hover { border-color:var(--border); transform:translateY(-2px); }
     .about-icon {
@@ -287,11 +402,11 @@
     .about-card p  { font-size:0.82rem; color:var(--text-muted); line-height:1.5; }
 
     /* ─── SKILLS ──────────────────────────────────── */
-    #skills { background: var(--bg-primary); }
-    .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; }
+    #skills { background: var(--bg-primary-t); }
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; position:relative; z-index:1; }
     .skill-group {
       background:var(--bg-card); border:1px solid var(--border-subtle);
-      border-radius:20px; padding:28px; transition:all var(--transition);
+      border-radius:20px; padding:28px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     .skill-group:hover { border-color:var(--border); box-shadow:var(--shadow-glow); }
     .skill-group-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
@@ -305,14 +420,14 @@
       padding:5px 12px; background:rgba(255,255,255,0.04);
       border:1px solid var(--border-subtle); border-radius:6px;
       font-size:0.78rem; color:var(--text-secondary);
-      font-family:'JetBrains Mono',monospace; transition:all var(--transition);
+      font-family:'JetBrains Mono',monospace; transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     [data-theme="light"] .skill-tag { background:rgba(0,0,0,0.03); }
     .skill-tag:hover { background:rgba(99,102,241,0.1); border-color:rgba(99,102,241,0.4); color:var(--text-primary); }
 
     /* ─── EXPERIENCE ──────────────────────────────── */
-    #experience { background: var(--bg-secondary); }
-    .timeline { position:relative; }
+    #experience { background: var(--bg-secondary-t); }
+    .timeline { position:relative; z-index:1; }
     .timeline::before {
       content:''; position:absolute; left:24px; top:0; bottom:0;
       width:1px; background:var(--border);
@@ -323,12 +438,12 @@
       position:absolute; left:0; top:4px; width:48px; height:48px;
       border-radius:12px; background:var(--bg-card); border:1px solid var(--border);
       display:flex; align-items:center; justify-content:center;
-      font-size:1.1rem; color:var(--accent-1); transition:all var(--transition);
+      font-size:1.1rem; color:var(--accent-1); transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     .timeline-item:hover .timeline-dot { background:rgba(99,102,241,0.14); border-color:var(--accent-1); box-shadow:0 0 20px rgba(99,102,241,0.2); }
     .timeline-card {
       background:var(--bg-card); border:1px solid var(--border-subtle);
-      border-radius:20px; padding:28px 32px; transition:all var(--transition);
+      border-radius:20px; padding:28px 32px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
     .timeline-item:hover .timeline-card { border-color:var(--border); }
     .timeline-header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:6px; }
@@ -346,11 +461,11 @@
     .role-divider { font-size:0.82rem; font-weight:600; color:var(--text-muted); margin:16px 0 8px; padding-top:12px; border-top:1px solid var(--border-subtle); }
 
     /* ─── PROJECTS ────────────────────────────────── */
-    #projects { background: var(--bg-primary); }
-    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; }
+    #projects { background: var(--bg-primary-t); }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; position:relative; z-index:1; }
     .project-card {
       background:var(--bg-card); border:1px solid var(--border-subtle);
-      border-radius:20px; padding:28px; transition:all var(--transition); display:flex; flex-direction:column;
+      border-radius:20px; padding:28px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); display:flex; flex-direction:column;
     }
     .project-card:hover { border-color:var(--border); transform:translateY(-4px); box-shadow:var(--shadow-glow); }
     .project-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; }
@@ -371,11 +486,11 @@
     }
 
     /* ─── EDUCATION ───────────────────────────────── */
-    #education { background: var(--bg-secondary); }
-    .edu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; }
+    #education { background: var(--bg-secondary-t); }
+    .edu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; position:relative; z-index:1; }
     .edu-card {
       background:var(--bg-card); border:1px solid var(--border-subtle);
-      border-radius:20px; padding:28px; transition:all var(--transition);
+      border-radius:20px; padding:28px; transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
       position:relative; overflow:hidden;
     }
     .edu-card::after {
@@ -396,14 +511,14 @@
     .edu-courses span { color:var(--text-secondary); }
 
     /* ─── LINKS ───────────────────────────────────── */
-    #links { background: var(--bg-primary); }
-    .links-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-bottom:56px; }
+    #links { background: var(--bg-primary-t); }
+    .links-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-bottom:56px; position:relative; z-index:1; }
     .link-card {
       display:flex; flex-direction:column; align-items:center; justify-content:center;
       gap:12px; padding:28px 16px; background:var(--bg-card);
       border:1px solid var(--border-subtle); border-radius:20px;
       text-decoration:none; color:var(--text-secondary);
-      transition:all var(--transition); text-align:center;
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1); text-align:center;
     }
     .link-card:hover { border-color:var(--border); color:var(--text-primary); transform:translateY(-4px); box-shadow:var(--shadow-glow); }
     .link-card i { font-size:1.8rem; }
@@ -417,7 +532,7 @@
 
     .cta-box {
       background:var(--bg-card); border:1px solid var(--border);
-      border-radius:20px; padding:48px; text-align:center; position:relative; overflow:hidden;
+      border-radius:20px; padding:48px; text-align:center; position:relative; overflow:hidden; z-index:1;
     }
     .cta-box::before {
       content:''; position:absolute; inset:0;
@@ -445,7 +560,7 @@
     }
     [data-theme="light"] .mobile-menu { background:rgba(241,245,249,0.97); }
     .mobile-menu.open { display:flex; }
-    .mobile-menu a { color:var(--text-primary); text-decoration:none; font-size:1.3rem; font-weight:600; transition:color var(--transition); }
+    .mobile-menu a { color:var(--text-primary); text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.3s cubic-bezier(0.4,0,0.2,1); }
     .mobile-menu a:hover { color:var(--accent-1); }
     .mobile-close { position:absolute; top:20px; right:24px; background:none; border:none; color:var(--text-primary); font-size:1.5rem; cursor:pointer; }
 
@@ -506,13 +621,20 @@
   <a href="mailto:p.jesal.work@gmail.com" class="btn btn-primary">Hire Me</a>
 </div>
 
-<!-- ─── HERO ──────────────────────────────────────── -->
-<section id="hero">
+<!-- ─── HERO — Layer 00 · Substrate ──────────────── -->
+<section id="hero" data-layer="0" style="--lc:#a78bfa">
+  <div class="section-scan"></div>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-badge"><span class="dot"></span>Open to opportunities · Bengaluru, India</div>
+      <div class="chip-layer-badge" style="--lc:#a78bfa">
+        <span class="clb-icon">◈</span>
+        <span>LAYER 00</span>
+        <span class="clb-sep">·</span>
+        <span>SUBSTRATE</span>
+      </div>
       <h1 class="hero-title">Jesal<br><span class="accent">Patel</span></h1>
       <p class="hero-subtitle">Senior Software Engineer &amp; AI/ML Specialist</p>
       <p class="hero-desc">
@@ -541,9 +663,16 @@
   </div>
 </section>
 
-<!-- ─── ABOUT ─────────────────────────────────────── -->
-<section id="about">
+<!-- ─── ABOUT — Layer 01 · Diffusion ─────────────── -->
+<section id="about" data-layer="1" style="--lc:#818cf8">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#818cf8">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 01</span>
+      <span class="clb-sep">·</span>
+      <span>DIFFUSION</span>
+    </div>
     <div class="section-tag">PHILOSOPHY</div>
     <h2 class="section-title">What drives me</h2>
     <div class="quote-card">
@@ -571,9 +700,16 @@
   </div>
 </section>
 
-<!-- ─── SKILLS ────────────────────────────────────── -->
-<section id="skills">
+<!-- ─── SKILLS — Layer 02 · Polysilicon ──────────── -->
+<section id="skills" data-layer="2" style="--lc:#f59e0b">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#f59e0b">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 02</span>
+      <span class="clb-sep">·</span>
+      <span>POLYSILICON</span>
+    </div>
     <div class="section-tag">EXPERTISE</div>
     <h2 class="section-title">Skills &amp; Technologies</h2>
     <p class="section-lead">A broad stack spanning AI/ML frameworks, embedded systems, and DevOps toolchains.</p>
@@ -638,9 +774,16 @@
   </div>
 </section>
 
-<!-- ─── EXPERIENCE ────────────────────────────────── -->
-<section id="experience">
+<!-- ─── EXPERIENCE — Layer 03 · Metal-1 ──────────── -->
+<section id="experience" data-layer="3" style="--lc:#fbbf24">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#fbbf24">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 03</span>
+      <span class="clb-sep">·</span>
+      <span>METAL-1</span>
+    </div>
     <div class="section-tag">CAREER</div>
     <h2 class="section-title">Professional Experience</h2>
     <p class="section-lead">6+ years across AI accelerators, ADAS embedded systems, and EV motor control.</p>
@@ -713,9 +856,16 @@
   </div>
 </section>
 
-<!-- ─── PROJECTS ───────────────────────────────────── -->
-<section id="projects">
+<!-- ─── PROJECTS — Layer 04 · Via ────────────────── -->
+<section id="projects" data-layer="4" style="--lc:#34d399">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#34d399">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 04</span>
+      <span class="clb-sep">·</span>
+      <span>VIA</span>
+    </div>
     <div class="section-tag">PORTFOLIO</div>
     <h2 class="section-title">Projects &amp; Highlights</h2>
     <p class="section-lead">From AI validation frameworks to robotics and hardware — a selection of impactful work.</p>
@@ -773,9 +923,16 @@
   </div>
 </section>
 
-<!-- ─── EDUCATION ──────────────────────────────────── -->
-<section id="education">
+<!-- ─── EDUCATION — Layer 05 · Metal-2 ───────────── -->
+<section id="education" data-layer="5" style="--lc:#6366f1">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#6366f1">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 05</span>
+      <span class="clb-sep">·</span>
+      <span>METAL-2</span>
+    </div>
     <div class="section-tag">LEARNING</div>
     <h2 class="section-title">Education</h2>
     <p class="section-lead">Formal training in AI/ML, Electronics Engineering, and Embedded Systems.</p>
@@ -805,9 +962,16 @@
   </div>
 </section>
 
-<!-- ─── LINKS ──────────────────────────────────────── -->
-<section id="links">
+<!-- ─── LINKS — Layer 06 · Passivation ───────────── -->
+<section id="links" data-layer="6" style="--lc:#22d3ee">
+  <div class="section-scan"></div>
   <div class="section-inner">
+    <div class="chip-layer-badge" style="--lc:#22d3ee">
+      <span class="clb-icon">◈</span>
+      <span>LAYER 06</span>
+      <span class="clb-sep">·</span>
+      <span>PASSIVATION</span>
+    </div>
     <div class="section-tag">CONNECT</div>
     <h2 class="section-title">Find me online</h2>
     <p class="section-lead">Links to my work, articles, and social profiles.</p>
@@ -833,6 +997,17 @@
     <p>Crafted with care by <span>Jesal Patel</span> · Bengaluru, India · <span>2025</span></p>
   </div>
 </footer>
+
+<!-- ─── LAYER STACK INDICATOR ─────────────────────── -->
+<div id="layerStack" aria-label="IC Chip Layers">
+  <div class="ls-item" data-target="hero"       style="--dot-c:#a78bfa"><span class="ls-label">L00 · SUBSTRATE</span>   <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="about"      style="--dot-c:#818cf8"><span class="ls-label">L01 · DIFFUSION</span>   <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="skills"     style="--dot-c:#f59e0b"><span class="ls-label">L02 · POLYSILICON</span> <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="experience" style="--dot-c:#fbbf24"><span class="ls-label">L03 · METAL-1</span>     <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="projects"   style="--dot-c:#34d399"><span class="ls-label">L04 · VIA</span>         <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="education"  style="--dot-c:#6366f1"><span class="ls-label">L05 · METAL-2</span>     <span class="ls-dot"></span></div>
+  <div class="ls-item" data-target="links"      style="--dot-c:#22d3ee"><span class="ls-label">L06 · PASSIVATION</span> <span class="ls-dot"></span></div>
+</div>
 
 <script>
 /* ════════════════════════════════════════════════════
@@ -861,24 +1036,18 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () 
 });
 
 /* ════════════════════════════════════════════════════
-   2. 3-D AI CHIP LAYER RENDERER
-   Seven IC-inspired layers, one per major page section.
-   Each layer is pre-drawn to an offscreen canvas and
-   placed at a different Z depth inside a CSS 3-D scene.
-   Mouse movement tilts the stack; scroll advances the
-   active layer with a top-to-bottom scan animation.
+   2. 3-D AI CHIP BACKGROUND — 7 IC layers in CSS 3D
    ════════════════════════════════════════════════════ */
 const CHIP_LAYERS = [
-  { label:'Substrate',    color:'#a78bfa', z:-180, hP:0.15, vP:0.15, viaP:0.25 },
-  { label:'Diffusion',    color:'#818cf8', z:-120, hP:0.28, vP:0.08, viaP:0.35 },
-  { label:'Polysilicon',  color:'#f59e0b', z: -60, hP:0.55, vP:0.08, viaP:0.18 },
-  { label:'Metal-1',      color:'#fbbf24', z:   0, hP:0.65, vP:0.08, viaP:0.50 },
-  { label:'Via',          color:'#34d399', z:  60, hP:0.05, vP:0.05, viaP:0.90 },
-  { label:'Metal-2',      color:'#6366f1', z: 120, hP:0.06, vP:0.65, viaP:0.48 },
-  { label:'Passivation',  color:'#22d3ee', z: 180, hP:0.20, vP:0.20, viaP:0.08 },
+  { label:'Substrate',   color:'#a78bfa', z:-180, hP:0.15, vP:0.15, viaP:0.25 },
+  { label:'Diffusion',   color:'#818cf8', z:-120, hP:0.28, vP:0.08, viaP:0.35 },
+  { label:'Polysilicon', color:'#f59e0b', z: -60, hP:0.55, vP:0.08, viaP:0.18 },
+  { label:'Metal-1',     color:'#fbbf24', z:   0, hP:0.65, vP:0.08, viaP:0.50 },
+  { label:'Via',         color:'#34d399', z:  60, hP:0.05, vP:0.05, viaP:0.90 },
+  { label:'Metal-2',     color:'#6366f1', z: 120, hP:0.06, vP:0.65, viaP:0.48 },
+  { label:'Passivation', color:'#22d3ee', z: 180, hP:0.20, vP:0.20, viaP:0.08 },
 ];
 
-/* Simple 32-bit seeded RNG (mulberry32) */
 function mkRng(seed) {
   return function() {
     seed = (seed + 0x6D2B79F5) >>> 0;
@@ -901,54 +1070,41 @@ function paintLayer(canvas, cfg, idx) {
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
   ctx.clearRect(0, 0, W, H);
-
   const rand = mkRng(idx * 2654435761 + 0x9e3779b9);
-  const G = 58; // grid spacing
+  const G = 58;
   const cols = Math.ceil(W / G) + 2;
   const rows = Math.ceil(H / G) + 2;
 
   ctx.strokeStyle = cfg.color;
   ctx.fillStyle   = cfg.color;
-  ctx.lineWidth   = 1.3;
+  ctx.lineWidth   = 2.4;
   ctx.lineCap = ctx.lineJoin = 'round';
 
   for (let r = 0; r <= rows; r++) {
     for (let co = 0; co <= cols; co++) {
       const x = co * G, y = r * G;
-
-      /* horizontal trace */
       if (rand() < cfg.hP && co < cols - 1) {
         const len = (Math.floor(rand() * 3) + 1) * G;
-        ctx.globalAlpha = 0.55 + rand() * 0.3;
-        ctx.beginPath();
-        ctx.moveTo(x + 5, y);
-        ctx.lineTo(Math.min(x + len - 5, W), y);
-        ctx.stroke();
+        ctx.globalAlpha = 0.7 + rand() * 0.25;
+        ctx.beginPath(); ctx.moveTo(x + 5, y); ctx.lineTo(Math.min(x + len - 5, W), y); ctx.stroke();
       }
-      /* vertical trace */
       if (rand() < cfg.vP && r < rows - 1) {
         const len = (Math.floor(rand() * 3) + 1) * G;
-        ctx.globalAlpha = 0.55 + rand() * 0.3;
-        ctx.beginPath();
-        ctx.moveTo(x, y + 5);
-        ctx.lineTo(x, Math.min(y + len - 5, H));
-        ctx.stroke();
+        ctx.globalAlpha = 0.7 + rand() * 0.25;
+        ctx.beginPath(); ctx.moveTo(x, y + 5); ctx.lineTo(x, Math.min(y + len - 5, H)); ctx.stroke();
       }
-      /* via */
       if (rand() < cfg.viaP) {
-        ctx.globalAlpha = 0.85;
-        ctx.beginPath(); ctx.arc(x, y, 2.8, 0, 6.283); ctx.fill();
-        ctx.globalAlpha = 0.38;
-        ctx.beginPath(); ctx.arc(x, y, 5.2, 0, 6.283); ctx.stroke();
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath(); ctx.arc(x, y, 3.2, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = 0.45;
+        ctx.beginPath(); ctx.arc(x, y, 6, 0, 6.283); ctx.stroke();
       }
-      /* component pad (rare) */
       if (rand() < 0.018) {
-        ctx.globalAlpha = 0.3;
+        ctx.globalAlpha = 0.38;
         ctx.strokeRect(x - 9, y - 9, 18, 18);
       }
-      /* logic-gate stub (very rare) */
       if (rand() < 0.006) {
-        ctx.globalAlpha = 0.22;
+        ctx.globalAlpha = 0.28;
         ctx.beginPath();
         ctx.arc(x + G * 0.5, y, G * 0.3, -1.57, 1.57);
         ctx.moveTo(x, y - G * 0.3); ctx.lineTo(x + G * 0.5, y - G * 0.3);
@@ -958,9 +1114,7 @@ function paintLayer(canvas, cfg, idx) {
       }
     }
   }
-
-  /* watermark label */
-  ctx.globalAlpha = 0.07;
+  ctx.globalAlpha = 0.09;
   ctx.font = '700 13px "JetBrains Mono", monospace';
   ctx.fillStyle = cfg.color;
   ctx.textAlign = 'center';
@@ -970,110 +1124,73 @@ function paintLayer(canvas, cfg, idx) {
   ctx.globalAlpha = 1;
 }
 
-/* Build DOM layers */
-const chipStack  = document.getElementById('chipStack');
-const domLayers  = CHIP_LAYERS.map((cfg, idx) => {
+const chipStack = document.getElementById('chipStack');
+const domLayers = CHIP_LAYERS.map((cfg, idx) => {
   const div = document.createElement('div');
   div.className = 'chip-layer';
   div.style.transform = `translateZ(${cfg.z}px)`;
-
   const canvas = buildLayerCanvas(cfg, idx);
   div.appendChild(canvas);
   chipStack.appendChild(div);
   return { div, canvas, cfg };
 });
 
-/* ── Scan-reveal animation ── */
 function revealLayer(layerObj) {
   const { div, canvas, cfg } = layerObj;
   div.style.opacity = '1';
-
-  /* abort if already a scan running */
   if (div._scanning) return;
   div._scanning = true;
-
-  /* overlay canvas for the scan beam */
   const oc = document.createElement('canvas');
-  oc.width  = canvas.width;
-  oc.height = canvas.height;
-  oc.className = 'chip-scan';
+  oc.width  = canvas.width; oc.height = canvas.height;
   oc.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;';
   div.appendChild(oc);
   const octx = oc.getContext('2d');
-
-  const H   = canvas.height;
-  const dur = 900; // ms
-  const t0  = performance.now();
-
+  const H = canvas.height, dur = 900, t0 = performance.now();
   function frame(now) {
-    const p    = Math.min((now - t0) / dur, 1);
-    const ease = 1 - Math.pow(1 - p, 3);   // ease-out cubic
+    const p = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
     const scanY = ease * H;
-
-    /* clear overlay */
     octx.clearRect(0, 0, oc.width, H);
-
-    /* clip-reveal: copy source canvas up to scanY */
-    octx.save();
-    octx.beginPath();
-    octx.rect(0, 0, oc.width, scanY);
-    octx.clip();
-    octx.drawImage(canvas, 0, 0);
-    octx.restore();
-
-    /* glowing scan beam */
+    octx.save(); octx.beginPath(); octx.rect(0, 0, oc.width, scanY); octx.clip();
+    octx.drawImage(canvas, 0, 0); octx.restore();
     if (p < 1) {
       const top = Math.max(0, scanY - 60);
       const grd = octx.createLinearGradient(0, top, 0, scanY + 6);
       grd.addColorStop(0,   'transparent');
-      grd.addColorStop(0.6, cfg.color + '28');
-      grd.addColorStop(1,   cfg.color + 'bb');
+      grd.addColorStop(0.6, cfg.color + '38');
+      grd.addColorStop(1,   cfg.color + 'cc');
       octx.fillStyle = grd;
       octx.fillRect(0, top, oc.width, scanY - top + 6);
-
-      /* sharp bright line */
       octx.fillStyle = cfg.color + 'ee';
-      octx.fillRect(0, scanY - 1, oc.width, 2);
+      octx.fillRect(0, scanY - 1.5, oc.width, 3);
     }
-
-    if (p < 1) {
-      requestAnimationFrame(frame);
-    } else {
-      oc.remove();
-      div._scanning = false;
-    }
+    if (p < 1) requestAnimationFrame(frame);
+    else { oc.remove(); div._scanning = false; }
   }
   requestAnimationFrame(frame);
 }
 
-/* active layer index driven by scroll */
 let activeLayerIdx = -1;
-
 function setActiveLayer(idx) {
   if (idx === activeLayerIdx) return;
   activeLayerIdx = idx;
   domLayers.forEach((l, i) => {
-    if (i < idx)  { l.div.style.opacity = String(0.06 + i * 0.015); }
-    if (i > idx)  { l.div.style.opacity = '0'; }
-    if (i === idx){ revealLayer(l); }
+    if (i < idx)  l.div.style.opacity = String(0.08 + i * 0.018);
+    if (i > idx)  l.div.style.opacity = '0';
+    if (i === idx) revealLayer(l);
   });
 }
 
-/* ── 3-D tilt via mouse (smooth lerp) ── */
 let tiltX = 0, tiltY = 0, txT = 0, tyT = 0;
-
 document.addEventListener('mousemove', e => {
   txT =  ((e.clientX / window.innerWidth)  - 0.5) *  14;
   tyT = -((e.clientY / window.innerHeight) - 0.5) *  9;
 });
 document.addEventListener('mouseleave', () => { txT = 0; tyT = 0; });
 
-/* scroll: layer index + scroll-pitch */
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
-  const idx = Math.min(Math.floor(pct * CHIP_LAYERS.length), CHIP_LAYERS.length - 1);
-  setActiveLayer(idx);
-  /* add forward/backward pitch so layers "lean" as you scroll */
+  setActiveLayer(Math.min(Math.floor(pct * CHIP_LAYERS.length), CHIP_LAYERS.length - 1));
   tyT = (pct - 0.5) * -18;
 }, { passive: true });
 
@@ -1084,10 +1201,8 @@ window.addEventListener('scroll', () => {
   requestAnimationFrame(loop);
 })();
 
-/* initialise first layer immediately */
 setActiveLayer(0);
 
-/* resize: repaint all layers */
 let _rto;
 window.addEventListener('resize', () => {
   clearTimeout(_rto);
@@ -1101,7 +1216,47 @@ window.addEventListener('resize', () => {
 });
 
 /* ════════════════════════════════════════════════════
-   3. NAV SCROLL SHADOW
+   3. PER-SECTION CHIP LAYER ACTIVATION
+   ════════════════════════════════════════════════════ */
+const lsItems = document.querySelectorAll('.ls-item');
+
+lsItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const target = document.getElementById(item.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+function updateLayerStack(idx) {
+  lsItems.forEach((item, i) => item.classList.toggle('ls-active', i === idx));
+}
+
+const sections = document.querySelectorAll('section[data-layer]');
+
+const sectionObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) {
+      e.target.classList.remove('layer-active');
+      return;
+    }
+    const idx = parseInt(e.target.dataset.layer);
+    e.target.classList.add('layer-active');
+    updateLayerStack(idx);
+
+    /* trigger scan beam */
+    const scan = e.target.querySelector('.section-scan');
+    if (scan) {
+      scan.classList.remove('active');
+      void scan.offsetWidth;
+      scan.classList.add('active');
+    }
+  });
+}, { threshold: 0.08 });
+
+sections.forEach(s => sectionObs.observe(s));
+
+/* ════════════════════════════════════════════════════
+   4. NAV SCROLL SHADOW
    ════════════════════════════════════════════════════ */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -1109,13 +1264,13 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ════════════════════════════════════════════════════
-   4. MOBILE MENU
+   5. MOBILE MENU
    ════════════════════════════════════════════════════ */
 function openMenu()  { document.getElementById('mobileMenu').classList.add('open'); }
 function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
 /* ════════════════════════════════════════════════════
-   5. SCROLL FADE-IN FOR CARDS
+   6. SCROLL FADE-IN FOR CARDS
    ════════════════════════════════════════════════════ */
 const fadeObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
