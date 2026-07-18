@@ -178,7 +178,7 @@ ul{list-style:none}
 
 /* ─── HERO ──────────────────────────────────────── */
 #hero{
-  min-height:100svh;padding:calc(var(--nh)+60px) 0 80px;
+  min-height:100svh;padding:calc(var(--nh) + 60px) 0 80px;
   display:flex;align-items:center;
   background:var(--bg);position:relative;overflow:hidden;
 }
@@ -529,7 +529,7 @@ footer span{color:var(--acc);font-weight:600}
 
 /* ─── RESPONSIVE ────────────────────────────────── */
 @media(max-width:980px){
-  #hero{align-items:flex-start}
+  #hero{align-items:flex-start;min-height:auto}
   .hero-inner{grid-template-columns:1fr;gap:36px;text-align:center}
   .hero-photo{display:flex;order:-1}
   .hero-bio{margin-left:auto;margin-right:auto}
@@ -540,7 +540,7 @@ footer span{color:var(--acc);font-weight:600}
 }
 @media(max-width:640px){
   .sec{padding:68px 18px}
-  #hero{padding-top:calc(var(--nh)+80px)}
+  #hero{padding-top:calc(var(--nh) + 80px)}
   .photo-frame{width:200px;height:200px}
   .hero-inner{padding:0 20px}
   .hero-name{font-size:clamp(2.2rem,9vw,2.9rem)}
