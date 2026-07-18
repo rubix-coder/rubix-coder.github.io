@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jesal Patel — Founder & Senior Software Engineer</title>
+  <title>Jesal Patel — Senior Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -529,8 +529,11 @@ footer span{color:var(--acc);font-weight:600}
 
 /* ─── RESPONSIVE ────────────────────────────────── */
 @media(max-width:980px){
-  .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-photo{display:none}
+  #hero{align-items:flex-start}
+  .hero-inner{grid-template-columns:1fr;gap:36px;text-align:center}
+  .hero-photo{display:flex;order:-1}
+  .hero-bio{margin-left:auto;margin-right:auto}
+  .hero-chips,.hero-stats,.hero-ctas{justify-content:center}
   .about-wrap{grid-template-columns:1fr}
   .nav-center,.nav-hire{display:none}
   .burger-btn{display:flex}
@@ -538,6 +541,7 @@ footer span{color:var(--acc);font-weight:600}
 @media(max-width:640px){
   .sec{padding:68px 18px}
   #hero{padding-top:calc(var(--nh)+80px)}
+  .photo-frame{width:200px;height:200px}
   .hero-inner{padding:0 20px}
   .hero-name{font-size:clamp(2.2rem,9vw,2.9rem)}
   .hero-bio{font-size:.93rem}
@@ -612,26 +616,26 @@ footer span{color:var(--acc);font-weight:600}
       <h1 class="hero-name">
         Jesal<br><span class="grad">Patel.</span>
       </h1>
-      <p class="hero-role">Founder & CEO · PlantPause &nbsp;|&nbsp; Senior Software Engineer</p>
+      <p class="hero-role">Senior Software Engineer &nbsp;·&nbsp; AI Infrastructure &amp; Automation</p>
       <p class="hero-bio">
-        Engineer turned founder. After 6 years building AI validation systems for
-        Qualcomm's next-gen accelerators, I channelled the same precision into
-        <em>PlantPause</em> — a mindful gardening brand helping city dwellers reconnect with
-        nature, one plant at a time. Currently deepening my roots in
-        <em>Generative AI & Agentic AI</em> at IIIT-Bangalore.
+        Senior software engineer with <em>7+ years</em> building large-scale automation
+        frameworks and AI-model evaluation infrastructure. I architect reusable systems
+        adopted across <em>5+ teams</em> and have validated models up to <em>70B parameters</em>
+        on cloud AI accelerators. Currently completing a postgraduate program in
+        <em>Generative & Agentic AI</em> at IIIT-Bangalore.
       </p>
       <div class="hero-chips">
         <span class="h-chip">AI / ML</span>
         <span class="h-chip">Embedded Systems</span>
-        <span class="h-chip">Founder</span>
+        <span class="h-chip">LLM Evaluation</span>
         <span class="h-chip">Generative AI</span>
         <span class="h-chip">Python</span>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><strong>6+</strong><span>Years SWE</span></div>
+        <div class="hstat"><strong>7+</strong><span>Years SWE</span></div>
         <div class="hstat"><strong>260+</strong><span>Tests automated</span></div>
         <div class="hstat"><strong>70B</strong><span>LLM params</span></div>
-        <div class="hstat"><strong>2</strong><span>Companies built</span></div>
+        <div class="hstat"><strong>5+</strong><span>Teams enabled</span></div>
       </div>
       <div class="hero-ctas">
         <a href="#experience" class="btn btn-primary"><i class="fa fa-briefcase"></i> See My Work</a>
@@ -667,7 +671,7 @@ footer span{color:var(--acc);font-weight:600}
         </div>
         <div class="trait reveal d2">
           <div class="trait-icon"><i class="fa fa-seedling"></i></div>
-          <div><h4>Founder Mindset</h4><p>Building PlantPause from zero — brand, product, community, and operations — with the same systems thinking I brought to engineering.</p></div>
+          <div><h4>Product Engineering</h4><p>Full end-to-end ownership of PlantPause and KutumbTree — a family-tree SaaS in Python with a RAG-based story generator and agentic relationship suggestions.</p></div>
         </div>
         <div class="trait reveal d3">
           <div class="trait-icon"><i class="fa fa-robot"></i></div>
@@ -749,7 +753,7 @@ footer span{color:var(--acc);font-weight:600}
   <div class="sec-inner">
     <div class="sec-eyebrow"><span class="sec-num">03 /</span>&nbsp; Career</div>
     <h2 class="sec-title">Professional Experience</h2>
-    <p class="sec-lead">From founding a consumer brand to validating AI hardware that powers global deployments.</p>
+    <p class="sec-lead">From architecting AI-model evaluation infrastructure to shipping full-stack products end to end.</p>
     <div class="timeline">
 
       <!-- PlantPause -->
@@ -757,15 +761,14 @@ footer span{color:var(--acc);font-weight:600}
         <div class="tl-badge"><i class="fa fa-seedling"></i></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-company">PlantPause · Bengaluru</span>
+            <span class="tl-company">PlantPause · KutumbTree · EPGP</span>
             <span class="tl-period">Feb 2026 – Present</span>
           </div>
-          <div class="tl-role">Founder &amp; CEO</div>
+          <div class="tl-role">Independent Software Engineer &amp; Founder</div>
           <ul class="tl-bullets">
-            <li>Founded <strong>PlantPause</strong> — an online mindful gardening brand helping urban dwellers reconnect with nature through the philosophy of <em>"Grow slow, grow mindful."</em></li>
-            <li>Launched product lines including <strong>DIY herb kits and natural care products</strong>; managing end-to-end product development, sourcing, and fulfilment.</li>
-            <li>Built the brand's full digital presence — website, <strong>PlantPause Diaries blog</strong>, and a WhatsApp community for home growers.</li>
-            <li>Leading product strategy, content creation, customer experience, and growth from the ground up.</li>
+            <li>Building <strong>PlantPause</strong> (plantpause.com), an early-stage brand and product — full end-to-end ownership of product direction, web presence, and engineering.</li>
+            <li>Designed and deployed <strong>KutumbTree</strong>, a family-tree SaaS (Python, hosted on Railway); building a <strong>RAG-based family-story generator</strong> and a read-only relationship-suggestion agent with confidence thresholds.</li>
+            <li>Completing an <strong>Executive PG Programme in Generative &amp; Agentic AI</strong> (IIIT-Bangalore &amp; upGrad) — hands-on with LLMs, RAG pipelines, and multi-agent systems.</li>
           </ul>
         </div>
       </div>
@@ -847,9 +850,9 @@ footer span{color:var(--acc);font-weight:600}
       <div class="proj-card reveal d1">
         <div class="proj-top"><div class="proj-ico"><i class="fa fa-seedling"></i></div><span class="proj-date">2025–ongoing</span></div>
         <div class="proj-title">PlantPause — Mindful Gardening Brand</div>
-        <div class="proj-org">Self-founded</div>
-        <p class="proj-desc">Built from zero — an online brand for urban gardeners centred on "Grow slow, grow mindful." Includes a product line of DIY herb kits and care products, a content blog, and a community channel. Every decision, from branding to fulfilment, made in-house.</p>
-        <div class="proj-tags"><span class="proj-tag">Founder</span><span class="proj-tag">E-commerce</span><span class="proj-tag">Brand</span></div>
+        <div class="proj-org">Personal Project</div>
+        <p class="proj-desc">An early-stage brand and product for urban gardeners, centred on "Grow slow, grow mindful." Built end-to-end — web presence, content blog, and community channel — with full ownership of product direction and engineering.</p>
+        <div class="proj-tags"><span class="proj-tag">Full Stack</span><span class="proj-tag">Web</span><span class="proj-tag">Product</span></div>
       </div>
 
       <div class="proj-card reveal d2">
@@ -973,7 +976,7 @@ footer span{color:var(--acc);font-weight:600}
     <h2 class="sec-title">Let's talk</h2>
     <div class="cta-block reveal">
       <h2>Open to interesting conversations</h2>
-      <p>Whether it's AI, embedded systems, building a startup, or just gardening — I'd love to hear from you.</p>
+      <p>Whether it's AI, embedded systems, automation, or just gardening — I'd love to hear from you.</p>
       <a href="mailto:p.jesal.work@gmail.com" class="btn btn-primary">
         <i class="fa fa-paper-plane"></i> Send Me a Message
       </a>
