@@ -414,6 +414,11 @@ ul{list-style:none}
   display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;
 }
 .proj-date{font-size:.72rem;color:var(--ink-3)}
+.proj-card.featured{border-color:rgba(109,40,217,.35);box-shadow:0 0 0 1px rgba(109,40,217,.12),var(--sh)}
+.proj-badge{
+  padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.03em;
+  background:var(--acc-l);color:var(--acc);border:1px solid rgba(109,40,217,.2);
+}
 .proj-title{font-size:.95rem;font-weight:700;margin-bottom:3px}
 .proj-org{font-size:.74rem;color:var(--acc);font-weight:600;margin-bottom:10px}
 .proj-desc{font-size:.82rem;color:var(--ink-2);line-height:1.65;flex:1;margin-bottom:16px}
@@ -508,7 +513,6 @@ ul{list-style:none}
 .link-card.kg i{color:#20beff}
 .link-card.yt i{color:#ff0000}
 .link-card.art i{color:var(--warm)}
-.link-card.pp i{color:var(--green)}
 .link-card.ml i{color:var(--warm)}
 
 /* ─── FOOTER ────────────────────────────────────── */
@@ -616,13 +620,14 @@ footer span{color:var(--acc);font-weight:600}
       <h1 class="hero-name">
         Jesal<br><span class="grad">Patel.</span>
       </h1>
-      <p class="hero-role">Senior Software Engineer &nbsp;·&nbsp; AI Infrastructure &amp; Automation</p>
+      <p class="hero-role">Systems &amp; Performance Engineering &nbsp;·&nbsp; System Integration &amp; Validation</p>
       <p class="hero-bio">
-        Senior software engineer with <em>6+ years</em> building large-scale automation
-        frameworks and AI-model evaluation infrastructure. I architect reusable systems
-        adopted across <em>5+ teams</em> and have validated models up to <em>70B parameters</em>
-        on cloud AI accelerators. Currently completing a postgraduate program in
-        <em>Generative & Agentic AI</em> at IIIT-Bangalore.
+        Systems engineer, most recently at <em>Qualcomm</em> on the Cloud AI accelerator line
+        (AI100, AI100U, AI200) — reading fleet telemetry, tracing faults through the compiler
+        and runtime stack, and turning the findings into tooling and release criteria adopted
+        across <em>5+ teams</em>. Roots in EV motor-control firmware and hardware; now building
+        local-first products like <em>KutumbTree</em> and <em>LetsGo</em>. Comfortable from silicon
+        to application layer.
       </p>
       <div class="hero-chips">
         <span class="h-chip">AI / ML</span>
@@ -632,9 +637,9 @@ footer span{color:var(--acc);font-weight:600}
         <span class="h-chip">Python</span>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><strong>6+</strong><span>Years SWE</span></div>
+        <div class="hstat"><strong>85%</strong><span>Fewer crashes</span></div>
         <div class="hstat"><strong>260+</strong><span>Tests automated</span></div>
-        <div class="hstat"><strong>70B</strong><span>LLM params</span></div>
+        <div class="hstat"><strong>23h→12h</strong><span>Pipeline runtime</span></div>
         <div class="hstat"><strong>5+</strong><span>Teams enabled</span></div>
       </div>
       <div class="hero-ctas">
@@ -668,15 +673,15 @@ footer span{color:var(--acc);font-weight:600}
       <div class="trait-list">
         <div class="trait reveal d1">
           <div class="trait-icon"><i class="fa fa-brain"></i></div>
-          <div><h4>AI / ML Engineering</h4><p>Validating deep learning models up to 70B parameters on Qualcomm AI accelerators using PyTorch, TensorRT, and LangChain.</p></div>
+          <div><h4>AI / ML Engineering</h4><p>Tuning and benchmarking CV, NLP, machine translation and segmentation models on Qualcomm Cloud AI accelerators, and writing the per-precision release gates (FP16, INT8, MX6).</p></div>
         </div>
         <div class="trait reveal d2">
           <div class="trait-icon"><i class="fa fa-seedling"></i></div>
-          <div><h4>Product Engineering</h4><p>Full end-to-end ownership of PlantPause and KutumbTree — a family-tree SaaS in Python with a RAG-based story generator and agentic relationship suggestions.</p></div>
+          <div><h4>Product Engineering</h4><p>Founder of KutumbTree (family graph with an MCP server for LLM clients) and LetsGo (local-first, encrypted, CRDT-synced) — both shipped end to end.</p></div>
         </div>
         <div class="trait reveal d3">
           <div class="trait-icon"><i class="fa fa-robot"></i></div>
-          <div><h4>Automation at Scale</h4><p>Automated 260+ test cases with CLI-Jenkins pipelines, cutting manual effort by 98% and accelerating validation by 80%.</p></div>
+          <div><h4>Automation at Scale</h4><p>Automated 260+ of ~300 test cases in Python and Jenkins, cut a 300-configuration suite to 105, and reduced manual validation by roughly 98%.</p></div>
         </div>
         <div class="trait reveal d4">
           <div class="trait-icon"><i class="fa fa-microchip"></i></div>
@@ -754,22 +759,23 @@ footer span{color:var(--acc);font-weight:600}
   <div class="sec-inner">
     <div class="sec-eyebrow"><span class="sec-num">03 /</span>&nbsp; Career</div>
     <h2 class="sec-title">Professional Experience</h2>
-    <p class="sec-lead">From architecting AI-model evaluation infrastructure to shipping full-stack products end to end.</p>
+    <p class="sec-lead">From characterizing AI accelerators at fleet scale to shipping local-first products end to end.</p>
     <div class="timeline">
 
-      <!-- PlantPause -->
+      <!-- Independent Products -->
       <div class="tl-row reveal">
-        <div class="tl-badge"><i class="fa fa-seedling"></i></div>
+        <div class="tl-badge"><i class="fa fa-rocket"></i></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-company">PlantPause · KutumbTree · EPGP</span>
-            <span class="tl-period">Feb 2026 – Present</span>
+            <span class="tl-company">Independent Products · Bengaluru</span>
+            <span class="tl-period">Apr 2026 – Present</span>
           </div>
-          <div class="tl-role">Independent Software Engineer &amp; Founder</div>
+          <div class="tl-role">Founder &amp; Lead Engineer — <a href="https://kutumbtree.com" target="_blank" rel="noopener">KutumbTree</a> · <a href="https://github.com/rubix-coder/LetsGoApp" target="_blank" rel="noopener">LetsGo</a></div>
           <ul class="tl-bullets">
-            <li>Building <strong>PlantPause</strong> (plantpause.com), an early-stage brand and product — full end-to-end ownership of product direction, web presence, and engineering.</li>
-            <li>Designed and deployed <strong>KutumbTree</strong>, a family-tree SaaS (Python, hosted on Railway); building a <strong>RAG-based family-story generator</strong> and a read-only relationship-suggestion agent with confidence thresholds.</li>
-            <li>Completing an <strong>Executive PG Programme in Generative &amp; Agentic AI</strong> (IIIT-Bangalore &amp; upGrad) — hands-on with LLMs, RAG pipelines, and multi-agent systems.</li>
+            <li>Two shipped collaborative data systems, both centred on <strong>multi-party sync and merge</strong>.</li>
+            <li><strong>KutumbTree, agent interface:</strong> built and published a <strong>Model Context Protocol server</strong> exposing the family graph as typed tools to LLM clients — schema design, tool contracts, and integration tests against live client calls.</li>
+            <li><strong>KutumbTree, shipped and hardened:</strong> Node/Express and SQLite with a custom SVG renderer (collision-free layout, branch collapse, search-to-zoom) at <strong>185+ nodes</strong>; live on web, Android build in Play Store testing. Security audit fixed a hardcoded JWT secret fallback, an unauthenticated webhook, and wildcard CORS; added security headers, rate limiting, and output escaping.</li>
+            <li><strong>LetsGo, local-first architecture:</strong> no backend, no telemetry, a <strong>WebCrypto-encrypted vault</strong>; opt-in, user-owned sync via self-hosted WebDAV or a team backend with four-tier roles and live <strong>Loro CRDT</strong> sync. React and TypeScript in an Electron shell.</li>
           </ul>
         </div>
       </div>
@@ -780,16 +786,18 @@ footer span{color:var(--acc);font-weight:600}
         <div class="tl-card">
           <div class="tl-head">
             <span class="tl-company">Qualcomm India Pvt. Ltd. · Bengaluru</span>
-            <span class="tl-period">Jun 2022 – Feb 2026</span>
+            <span class="tl-period">May 2022 – Feb 2026</span>
           </div>
-          <div class="tl-role">Senior Software Engineer</div>
+          <div class="tl-role">Senior Software Engineer — AI Accelerator Systems</div>
           <ul class="tl-bullets">
-            <li>Led embedded software validation for <strong>Qualcomm Cloud AI100 / AI100U / AI200</strong> accelerators — achieved <strong>85% reduction</strong> in card crash incidents.</li>
-            <li>Automated <strong>260+ of 300+ test cases</strong>, cutting manual validation effort by <strong>88%</strong>.</li>
-            <li>Optimised <strong>DSP utilisation to 100%</strong> by tuning HVX/HMX operations and eliminating DDR spillage.</li>
-            <li>Built automation pipelines for <strong>CV, NLP, and LLMs up to 70B parameters</strong> — reduced execution time by <strong>80%</strong>.</li>
-            <li>Deployed a <strong>CLI + Jenkins UI framework</strong> adopted cross-team, eliminating 98% of manual effort.</li>
-            <li>Mentored a <strong>5-member team</strong>, led Agile ceremonies, and built a modular profiling framework for deep learning on AI100.</li>
+            <li>Used fine-grained telemetry (DSP utilization, DDR spillage, CPU affinity) to characterize accelerator behaviour at fleet scale; led root-cause work that cut crash incidents by <strong>85%</strong> — the triage steps became the team playbook.</li>
+            <li>Tracked precision regressions through the compiler and runtime stack with <strong>layer-wise bisection</strong>, and filed accuracy-critical findings back to the compiler team.</li>
+            <li>Restructured the characterization pipeline, bringing a full run down from <strong>23 hours to 12</strong>.</li>
+            <li>Built a performance-metrics framework (accuracy, latency, power, DDR bandwidth) that replaced legacy tooling and was adopted by <strong>5+ teams</strong>.</li>
+            <li>Wrote the per-precision acceptance thresholds that became the <strong>release gate</strong> for the accelerator line (FP16 99.9%, INT8 99%, MX6 97% of FP32 reference).</li>
+            <li>Owned the Python + Jenkins nightly automation: automated <strong>260+ of ~300</strong> test cases and cut a 300-configuration suite to 105 without losing coverage — roughly <strong>98% less</strong> manual validation.</li>
+            <li>Tuned and benchmarked CV, NLP, machine translation and segmentation models, from HVX/HMX tuning and DDR-spillage reduction up to day-to-day Python tooling.</li>
+            <li>Held system integration test sign-off for releases; led <strong>five engineers</strong> and mentored two, one promoted within a year.</li>
           </ul>
         </div>
       </div>
@@ -800,13 +808,12 @@ footer span{color:var(--acc);font-weight:600}
         <div class="tl-card">
           <div class="tl-head">
             <span class="tl-company">Skandysys Pvt. Ltd. · Bengaluru</span>
-            <span class="tl-period">2020 – 2022</span>
+            <span class="tl-period">Aug 2020 – May 2022</span>
           </div>
-          <div class="tl-role">Software Engineer II — ADAS / Embedded Automation</div>
+          <div class="tl-role">Software Engineer — Test Automation</div>
           <ul class="tl-bullets">
-            <li>Reduced time-to-market by <strong>30%</strong> with a scalable test automation framework for ADAS embedded systems.</li>
-            <li>Increased test coverage by <strong>40%</strong>, boosted defect detection by <strong>35%</strong>, cut manual testing by <strong>50%</strong>.</li>
-            <li>Integrated with <strong>CI/CD pipelines</strong>, cutting manual intervention by 50% and accelerating deployment by 40%.</li>
+            <li>Built a modular Python automation framework for <strong>ADAS embedded software</strong>, cutting time to market by <strong>30%</strong> and manual testing effort by half.</li>
+            <li>Raised test coverage by <strong>40%</strong> through automated suites, and wired the framework into <strong>CI/CD</strong> to halve manual intervention.</li>
           </ul>
         </div>
       </div>
@@ -816,14 +823,14 @@ footer span{color:var(--acc);font-weight:600}
         <div class="tl-badge"><i class="fa fa-bolt"></i></div>
         <div class="tl-card">
           <div class="tl-head">
-            <span class="tl-company">GreenVolt Mobility LLP · Ahmedabad</span>
-            <span class="tl-period">2017 – 2019</span>
+            <span class="tl-company">GreenVolt Mobility · Ahmedabad</span>
+            <span class="tl-period">Dec 2016 – Jun 2020</span>
           </div>
-          <div class="tl-role">President → VP → Development Engineer — Electronic Systems</div>
+          <div class="tl-role">Development Engineer → VP Electronic Systems → President</div>
           <ul class="tl-bullets">
-            <li>Led hardware/software product development from prototype to production; improved profitability by <strong>15%</strong>.</li>
-            <li>Implemented the FAST algorithm on <strong>TI C2000 microcontrollers</strong>; designed PMSM controllers with ARM Cortex M0/M4.</li>
-            <li>Ran vehicle dyno tests using <strong>Raspberry Pi</strong> — 30% fewer defects, 50% less manual effort.</li>
+            <li>Led hardware and firmware for <strong>EV motor-control systems</strong> — PMSM controllers, custom test instruments, and pre-production and post-assembly drive diagnostics.</li>
+            <li>Programmed control and diagnostic tooling in <strong>C and Python</strong> against TI Control Suite and Code Composer Studio; built Python validation tooling that halved manual test effort.</li>
+            <li>Designed schematics and PCBs in <strong>KiCad and Eagle</strong>, and ran dyno testing and electrical parameter analysis to check operating consistency.</li>
           </ul>
         </div>
       </div>
@@ -840,19 +847,27 @@ footer span{color:var(--acc);font-weight:600}
     <p class="sec-lead">A selection of systems built, frameworks shipped, and problems solved across AI, hardware, and software.</p>
     <div class="proj-grid">
 
-      <div class="proj-card reveal">
+      <div class="proj-card featured reveal">
+        <div class="proj-top"><div class="proj-ico"><i class="fa fa-lock"></i></div><span class="proj-badge">★ Featured</span></div>
+        <div class="proj-title">LetsGo</div>
+        <div class="proj-org">Personal Project · Apr 2026</div>
+        <p class="proj-desc">A local-first app with no backend, no telemetry, and no network calls on first run — data lives in a WebCrypto-encrypted vault opened by passphrase. Sync is opt-in and user-owned: an encrypted blob to self-hosted WebDAV, or a self-hosted team backend with invite links, four-tier roles, and live Loro CRDT sync for concurrent edits with no central arbiter.</p>
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Electron</span><span class="proj-tag">CRDT</span><a href="https://github.com/rubix-coder/LetsGoApp" target="_blank" rel="noopener" class="proj-tag" style="color:var(--green);border-color:rgba(4,120,87,.3);background:rgba(4,120,87,.07)">GitHub ↗</a></div>
+      </div>
+
+      <div class="proj-card reveal d1">
         <div class="proj-top"><div class="proj-ico"><i class="fa fa-sitemap"></i></div><span class="proj-date">May 2026 · WIP</span></div>
         <div class="proj-title">KutumbTree</div>
         <div class="proj-org">Personal Project</div>
         <p class="proj-desc">A web app to build, visualize, and explore your family tree — making it easy to map generational connections and preserve family history digitally.</p>
-        <div class="proj-tags"><span class="proj-tag">Full Stack</span><span class="proj-tag">Web App</span><a href="https://kutumbtree.up.railway.app/" target="_blank" rel="noopener" class="proj-tag" style="color:var(--green);border-color:rgba(4,120,87,.3);background:rgba(4,120,87,.07)">Live ↗</a></div>
+        <div class="proj-tags"><span class="proj-tag">Full Stack</span><span class="proj-tag">Web App</span><a href="https://kutumbtree.com" target="_blank" rel="noopener" class="proj-tag" style="color:var(--green);border-color:rgba(4,120,87,.3);background:rgba(4,120,87,.07)">Live ↗</a></div>
       </div>
 
       <div class="proj-card reveal d1">
-        <div class="proj-top"><div class="proj-ico"><i class="fa fa-seedling"></i></div><span class="proj-date">2025–ongoing</span></div>
+        <div class="proj-top"><div class="proj-ico"><i class="fa fa-seedling"></i></div><span class="proj-date">2025 · Paused</span></div>
         <div class="proj-title">PlantPause — Mindful Gardening Brand</div>
         <div class="proj-org">Personal Project</div>
-        <p class="proj-desc">An early-stage brand and product for urban gardeners, centred on "Grow slow, grow mindful." Built end-to-end — web presence, content blog, and community channel — with full ownership of product direction and engineering.</p>
+        <p class="proj-desc">An early-stage brand and product for urban gardeners, centred on "Grow slow, grow mindful." Built end-to-end — web presence, content blog, and community channel — with full ownership of product direction and engineering. The project is currently on hold.</p>
         <div class="proj-tags"><span class="proj-tag">Full Stack</span><span class="proj-tag">Web</span><span class="proj-tag">Product</span></div>
       </div>
 
@@ -860,7 +875,7 @@ footer span{color:var(--acc);font-weight:600}
         <div class="proj-top"><div class="proj-ico"><i class="fa fa-check-circle"></i></div><span class="proj-date">Mar 2024</span></div>
         <div class="proj-title">AI Model Accuracy Validation Framework</div>
         <div class="proj-org">Qualcomm India</div>
-        <p class="proj-desc">A fully automated pipeline that validates accuracy for CV, NLP, and LLM workloads (up to 70B params) on Qualcomm AI100/AI080/AI200 hardware. What once took days now runs in hours — end-to-end, from model input to accuracy report, via a single CLI command.</p>
+        <p class="proj-desc">A fully automated pipeline that validates accuracy for CV, NLP, machine translation and segmentation workloads on Qualcomm AI100/AI100U/AI200 hardware, against GPU-generated FP32 golden references. What once took days now runs in hours — end-to-end, from model input to accuracy report, via a single CLI command.</p>
         <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Jenkins</span><span class="proj-tag">LLM</span><span class="proj-tag">AI100</span></div>
       </div>
 
@@ -908,11 +923,11 @@ footer span{color:var(--acc);font-weight:600}
     <p class="sec-lead">Always learning — from embedded systems to generative AI, and everything in between.</p>
     <div class="edu-grid">
 
-      <div class="edu-card current reveal">
-        <div class="edu-badge live"><span class="live-dot"></span> Ongoing</div>
-        <div class="edu-degree">Executive PGP — Generative AI &amp; Agentic AI</div>
-        <div class="edu-school">IIIT-Bangalore</div>
-        <div class="edu-gpa"><i class="fa fa-calendar-alt"></i> Jan 2026 – Present</div>
+      <div class="edu-card reveal">
+        <div class="edu-badge done">Completed</div>
+        <div class="edu-degree">Executive Post Graduate Programme — Applied AI &amp; Agentic AI</div>
+        <div class="edu-school">IIIT-Bangalore &amp; upGrad</div>
+        <div class="edu-gpa"><i class="fa fa-star"></i> Overall score: 95.77% &nbsp;·&nbsp; Feb – Aug 2026</div>
         <div class="edu-courses">Focus: <span>LLM Architecture · Agentic Systems · RAG · AI Product Development</span></div>
       </div>
 
@@ -997,9 +1012,6 @@ footer span{color:var(--acc);font-weight:600}
       </a>
       <a href="https://www.kaggle.com/rubixcoder19/" class="link-card kg" target="_blank" rel="noopener">
         <i class="fab fa-kaggle"></i> Kaggle
-      </a>
-      <a href="https://www.plantpause.com" class="link-card pp" target="_blank" rel="noopener">
-        <i class="fa fa-seedling"></i> PlantPause
       </a>
       <a href="https://www.linkedin.com/pulse/mlepisode-1-what-machine-learning-jesal-patel/" class="link-card art" target="_blank" rel="noopener">
         <i class="fa fa-newspaper"></i> ML Article
