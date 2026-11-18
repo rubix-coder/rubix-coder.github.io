@@ -799,7 +799,8 @@ footer span{color:var(--acc);font-weight:600}
             <li>Designed the regression triage SOP and built its Jenkins pipeline, tracking accuracy, latency and model failures; adopted by the accuracy development and system-integration teams and used to onboard new engineers.</li>
             <li>Wrote the per-precision acceptance thresholds that became the <strong>release gate</strong> for the accelerator line (FP16 99.9%, INT8 99%, MX6 97% of FP32 reference).</li>
             <li>Owned the Python + Jenkins nightly automation: automated <strong>260 of ~300</strong> test cases and cut a 300-configuration suite to 105 without losing coverage — roughly <strong>98% less</strong> manual validation.</li>
-            <li>Ran the accuracy tool on LLMs — <strong>Llama 70B, Mistral, Mixtral, DeepSeek</strong> and larger — triaged regressions and reported them to the development team; wrote automation over PEFT APIs reporting inferences/sec before and after <strong>LoRA</strong> adapters.</li>
+            <li>Evaluated LLMs — <strong>Llama 70B, Mistral, Mixtral, DeepSeek</strong> — with the team's separate LLM evaluation tool, and extended that tool with <strong>multi-card dataset splitting</strong> (merged and adopted by the team): accuracy reports that took a day or two came back in hours.</li>
+            <li>Automated testing of the <strong>PEFT fine-tuning tool</strong>: a CSV-driven runner executes each configuration, extracts logs, compiles metrics (loss, time to first token, timings) into an emailed report; extended to nightly Jenkins runs.</li>
             <li>Cut the nightly functional suite for the accuracy tools from <strong>16 hours to 20 minutes</strong> by reducing 115 models across 4 precisions to the 30 covering every unique configuration.</li>
             <li>Tuned and benchmarked CV, NLP, machine translation and segmentation models, from HVX/HMX tuning and DDR-spillage reduction up to day-to-day Python tooling.</li>
           </ul>
@@ -880,7 +881,7 @@ footer span{color:var(--acc);font-weight:600}
         <div class="proj-top"><div class="proj-ico"><i class="fa fa-check-circle"></i></div><span class="proj-date">Mar 2024</span></div>
         <div class="proj-title">Model Accuracy Validation on Cloud AI 100</div>
         <div class="proj-org">Qualcomm India</div>
-        <p class="proj-desc">Ran and maintained the accuracy tools that check CV, NLP, machine translation, segmentation and LLM workloads (Llama 70B, Mistral, Mixtral, DeepSeek) on Qualcomm AI100/AI100U/AI200 hardware against GPU-generated FP32 golden references. Triaged regressions, did layer-level analysis on the accuracy-critical cases, and wrote the per-precision thresholds that became the release gate.</p>
+        <p class="proj-desc">Owned end-to-end testing of the internally built accuracy tools and used them for system-integration accuracy benchmarking of CV, NLP and object-detection models on Qualcomm AI100/AI100U/AI200 hardware, against GPU-generated FP32 golden references. Triaged regressions, did layer-level analysis on the accuracy-critical cases, and proposed the per-precision thresholds that became the release gate. LLMs ran through a separate evaluation tool, which I extended with multi-card dataset splitting.</p>
         <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Jenkins</span><span class="proj-tag">Accuracy</span><span class="proj-tag">AI100</span></div>
       </div>
 
@@ -948,15 +949,13 @@ footer span{color:var(--acc);font-weight:600}
         <div class="edu-badge done">Completed</div>
         <div class="edu-degree">B.E. — Electronics &amp; Communication Engineering</div>
         <div class="edu-school">Indus University, Ahmedabad</div>
-        <div class="edu-gpa"><i class="fa fa-star"></i> GPA: 7.9 / 10</div>
         <div class="edu-courses">Coursework: <span>Signal Processing · Microcontrollers · FPGA Design</span></div>
       </div>
 
       <div class="edu-card reveal d3">
         <div class="edu-badge done">Completed</div>
         <div class="edu-degree">Diploma — Electronics &amp; Communication Engineering</div>
-        <div class="edu-school">VPMP Polytechnic (LDRP), Gandhinagar</div>
-        <div class="edu-gpa"><i class="fa fa-star"></i> GPA: 7.0 / 10</div>
+        <div class="edu-school">VPMP Polytechnic, Gandhinagar</div>
         <div class="edu-courses">Coursework: <span>Embedded Systems · VHDL · Communication Protocols</span></div>
       </div>
 
